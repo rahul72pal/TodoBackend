@@ -23,11 +23,11 @@ exports.getAllTodos = async (req, res) => {
       })
       .exec();
 
-    if (userTodos.tasks.length === 0) {
-      return res.status(200).json({
-        message: "No Today Task Found",
-      });
-    }
+    // if (userTodos.tasks.length === 0) {
+    //   return res.status(200).json({
+    //     message: "No Today Task Found",
+    //   });
+    // }
 
     // const task = await Todo.find();
     console.log("TASK 1", userTodos.completedTask)
