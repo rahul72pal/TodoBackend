@@ -24,9 +24,8 @@ exports.getAllTodos = async (req, res) => {
       .exec();
 
     if (userTodos.tasks.length === 0) {
-      return res.status(401).json({
-        success: false,
-        message: "No Task Found",
+      return res.status(200).json({
+        message: "No Today Task Found",
       });
     }
 
