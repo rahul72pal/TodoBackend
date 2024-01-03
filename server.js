@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 
 const corsOptions = {
-    origin:"https://todo-frontend-new.vercel.app",
+    origin:"*",
     credentials: true,
     optionSuccessStatus: 200
 };
