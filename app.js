@@ -4,10 +4,12 @@ const bodyParser = require('body-parser');
 const todoRoutes = require('./routes/todo');
 const cookieParser = require("cookie-parser");
 const cors = require('cors');
+require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 4000;
 
+console.log(process.env.PORT)
 // Middleware
 app.use(bodyParser.json());
 app.use(cookieParser());
@@ -18,12 +20,8 @@ const corsOptions = {
     optionSuccessStatus: 200
 };
 
-// Connect to MongoDB
-// mongoose.connect('mongodb+srv://rahulgwl72:iwPQAnEhyvU550Es@cluster0.nyhnbge.mongodb.net/MytodoApp', {
-//     //   useNewUrlParser: true,
-//     //   useUnifiedTopology: true,
-// });
-mongoose.connect('mongodb+srv://rahulgwl72:iwPQAnEhyvU550Es@cluster0.nyhnbge.mongodb.net/MytodoApp', {
+// console.log(process.env.MONGODB_URL)
+mongoose.connect(process.env.MONGODB_URL , {
     //   useNewUrlParser: true,
     //   useUnifiedTopology: true,
 });

@@ -32,7 +32,7 @@ exports.getAllTodos = async (req, res) => {
     // const task = await Todo.find();
     console.log("TASK 1", userTodos.completedTask)
     console.log("TASK 2", userTodos.tasks.length)
-    const completePercent = (userTodos.completedTask / userTodos.tasks.length) * 100;
+    const completePercent = userTodos.completedTask;
 
     return res.status(200).json({
       success: true,
