@@ -23,7 +23,7 @@ module.exports.auth = async(req,res,next)=>{
             console.log("Verify the Decoder = ", decode);
             req.user = decode;
         } catch (error) {
-            console.log("Error during verification:", error.message);
+            console.log("Error during verification:", error);
             return res.status(401).json({
                 success: false,
                 message: "Token Invalid in Verifying"

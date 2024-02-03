@@ -6,6 +6,9 @@ const todoSchema = new mongoose.Schema({
   priority: { type: String, enum: ['red', 'orange', 'yellow'], default: 'yellow' },
   alertMode: { type: Boolean, default: false },
   completed: { type: Boolean, default: false },
+  status:{
+    enum: ["start","expire"]
+  },
   dueHours: { type: Number },
   createdAt: {
     type: Date,

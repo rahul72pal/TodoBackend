@@ -37,7 +37,11 @@ const userSchema = new mongoose.Schema({
     completedTask:{
         type: Number,
         default: 0,
-    }
+    },
+    challenge:[{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Challenge"
+    }]
 });
 
 const User = mongoose.model('User', userSchema);

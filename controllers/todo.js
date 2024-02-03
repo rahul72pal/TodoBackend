@@ -85,7 +85,7 @@ exports.createTodo = async (req, res) => {
     updatedUser.save();
 
     const mailsend = await mailSender(email, "Your Task Is Register", RegisterTask(`${updatedUser.firstName} ${updatedUser.lastName}`, name, description, dueHours));
-    console.log("First Mail Response = ",mailsend);
+    console.log("First Mail Response = ", mailsend);
 
     // Schedule an email 1 hour before the task end date
     const taskDate = new Date();
@@ -332,13 +332,13 @@ exports.updateTask = async (req, res) => {
     const { name, description,
       priority, alertMode, dueHours
       , taskId, completed } = req.body;
-      console.log(req.body);
+    console.log(req.body);
 
-      // if(!name || !description ||)
+    // if(!name || !description ||)
 
     const task = await Todo.findById(taskId);
 
-    if(!task){
+    if (!task) {
       return res.json({
         message: "Task NoT found"
       })
@@ -353,17 +353,17 @@ exports.updateTask = async (req, res) => {
 
     //update
     task.name = name,
-    task.description = description,
-    task.priority = priority,
-    task.dueHours = dueHours,
-    task.alertMode = alertMode
+      task.description = description,
+      task.priority = priority,
+      task.dueHours = dueHours,
+      task.alertMode = alertMode
 
     //save the task
     task.save();
 
     return res.status(200).json({
       success: true,
-      message:"Task Update",
+      message: "Task Update",
       data: task
     });
 
@@ -375,6 +375,7 @@ exports.updateTask = async (req, res) => {
     })
   }
 }
+
 
 /*const getYesterdayTasks = async (req, res) => {
   
