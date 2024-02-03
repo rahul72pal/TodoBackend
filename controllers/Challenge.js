@@ -22,7 +22,7 @@ const createTask = async (taskObj, challengeId) => {
             completed: taskObj.completed,
             status: taskObj.status,
             createdAt: taskObj.createdAt,
-            expiresAt: new Date(Date.now() + 60 * 1000),
+            expiresAt: new Date(Date.now() + 24* 60* 60 * 1000),
         };
 
         const newTodo = new ChallengeTask(taskData);
@@ -115,7 +115,7 @@ const createDailyTasks = async (userId, challengeId) => {
 // };
 
 // Schedule task creation for each user daily at midnight
-cron.schedule('* * * * *', async () => {
+cron.schedule('0 0 * * *', async () => {
     // console.log("Scheduled task creation for each user daily at midnight");
     try {
         // Fetch challenges with status 'Start'
