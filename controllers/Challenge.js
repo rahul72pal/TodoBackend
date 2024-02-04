@@ -14,6 +14,7 @@ const createTask = async (taskObj, challengeId) => {
     const challenge = await Challenge.findById(challengeId);
 
     try {
+        //add exprires time to 24 Hours
         // Create an object with task properties
         const taskData = {
             name: taskObj.name,
@@ -114,6 +115,7 @@ const createDailyTasks = async (userId, challengeId) => {
 //     );
 // };
 
+//add exprires time to 24 Hours
 // Schedule task creation for each user daily at midnight
 cron.schedule('0 0 * * *', async () => {
     // console.log("Scheduled task creation for each user daily at midnight");
