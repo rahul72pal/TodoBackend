@@ -118,7 +118,7 @@ const createDailyTasks = async (userId, challengeId) => {
 //add exprires time to 24 Hours
 // Schedule task creation for each user daily at midnight
 cron.schedule('0 0 * * *', async () => {
-    // console.log("Scheduled task creation for each user daily at midnight");
+    console.log("Scheduled task creation for each user daily at midnight");
     try {
         // Fetch challenges with status 'Start'
         const challenges = await Challenge.find({ status: 'Start' });
@@ -129,11 +129,11 @@ cron.schedule('0 0 * * *', async () => {
             // Create daily tasks for the challenge
             await createDailyTasks(challenge.userId, challenge._id);
 
-            // console.log("Task creation for challenge daily completed");
+            console.log("Task creation for challenge daily completed");
         }
 
     } catch (error) {
-        // console.error("Error in task creation:", error);
+        console.error("Error in task creation:", error);
     }
 });
 
